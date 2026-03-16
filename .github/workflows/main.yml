@@ -30,7 +30,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Publish API
-        run: dotnet publish src/OrderApi/OrderApi.csproj -c Release -o publish
+        run: dotnet publish OrderApi/OrderApi.csproj -c Release -o publish
 
       - name: Login to Registry
         run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login $REGISTRY -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
