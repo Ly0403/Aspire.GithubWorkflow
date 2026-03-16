@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path="main.yml" />
+  </Folder>
   <Project Path="Aspire.GithubWorkflow.AppHost/Aspire.GithubWorkflow.AppHost.csproj" />
   <Project Path="Aspire.GithubWorkflow.ServiceDefaults/Aspire.GithubWorkflow.ServiceDefaults.csproj" />
   <Project Path="OrderApi/OrderApi.csproj" />
