@@ -8,6 +8,7 @@ on:
 env:
   REGISTRY: registry.layusoft.com
   IMAGE_NAME: aspire/githubworkflow/orderapi
+  ORDER_API_PORT: 2222
 
 jobs:
 
@@ -59,5 +60,11 @@ jobs:
       - name: Generate Docker Compose from Aspire
         run: |
           aspire publish docker-compose --project Aspire.GithubWorkflow.AppHost/Aspire.GithubWorkflow.AppHost.csproj --output docker-compose.yml
+
+      - name: Run compose up
+        run: |
+          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login $REGISTRY -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+          cd Aspire.GihtubWorkflow.AppHost/aspire-output
+          yq -i ".services.orderapi.ports = [\"${ORDER_API_PORT}:${ORDER_API_PORT}\"]" docker-compose.yaml
           docker compose pull
           docker compose up -d
