@@ -58,8 +58,6 @@ jobs:
 
       - name: Generate Docker Compose from Aspire
         run: |
-          aspire generate docker-compose \
-            --project Aspire.GithubWorkflow.AppHost/Aspire.GithubWorkflow.AppHost.csproj \
-            --output docker-compose.yml
+          aspire generate docker-compose --project Aspire.GithubWorkflow.AppHost/Aspire.GithubWorkflow.AppHost.csproj --output docker-compose.yml
           docker compose pull
           docker compose up -d
