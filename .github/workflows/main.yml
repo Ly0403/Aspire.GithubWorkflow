@@ -37,7 +37,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t $REGISTRY/${IMAGE_NAME}:latest -f OrderApi/Dockerfile
+          docker build -t $REGISTRY/${IMAGE_NAME}:latest -f OrderApi/Dockerfile .
 
       - name: Push Image
         run: |
