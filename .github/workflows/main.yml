@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: registry.layusoft.com
-  IMAGE_NAME: ${{ github.repository }}/orderapi
+  IMAGE_NAME: aspire/githubworkflow/orderapi
 
 jobs:
 
